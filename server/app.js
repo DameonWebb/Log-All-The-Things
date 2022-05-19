@@ -1,11 +1,11 @@
 const express = require('express');
-const morgan = require('morgan');
+//const morgan = require('morgan');
 const fs = require('fs');
 const app = express();
 const csvFilePath = './server/log.csv'
 const csv = require('csvtojson')
 
-app.use(morgan('dev'))
+//app.use(morgan('dev'))
 app.set('json spaces', 2)
 
 app.get('/', (req, res) => {
@@ -20,9 +20,11 @@ app.get('/', (req, res) => {
 
     fs.appendFile('./server/log.csv', '\n' + allData, function() {
         console.log("File was appended!");
-    });  
+    });
 
-    res.status(200);
+    console.log(allData); 
+
+    res.status(200).send("Ok!");
    
 })
 
