@@ -4,18 +4,13 @@ const app = express();
 const csvFilePath = './server/log.csv'
 const csv = require('csvtojson')
 let log = "";
-var method = req;
+//var method = req;
 
 //middleware
     app.use((req, res, next) => {
         //handle the user agent
         res.locals.ua = req.get('User-Agent');
         next();
-    });
-
-    //how much time elapsed since sending request
-    request.get({ url: 'http://www.google.com', time: true }, function (err, response) {
-        console.log('The actual time elapsed:', response.elapsedTime);
     });
 
     //iso date standard
@@ -29,12 +24,12 @@ var method = req;
         }else{
             console.log(req)
         }
-    }
+    }?
 
 app.get('/', (req, res) => {
 // write your code to respond "ok" here
 
-});
+}):
 
 app.get('/logs', (req, res) => {
     csv()
@@ -45,3 +40,4 @@ app.get('/logs', (req, res) => {
 });
 
 module.exports = app;
+
